@@ -1,0 +1,822 @@
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Helvetica', sans-serif;
+}
+
+:root{
+    /* Color */
+    --blue: rgb(24, 118, 242);
+    --green: rgb(0, 173, 87);
+    --gray: rgb(132, 132, 132);
+    --grayLight: rgb(235, 231, 231);
+    --white: rgb(255, 255, 255);
+
+    /* Font-size */
+    --content: 16px;
+    --title: 20px;
+    --aside : 14px;
+    --smallInfo: 12px;
+}
+
+html, body{
+    
+}
+
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65px auto;
+    grid-template-areas: 
+            "header"
+            "container";
+    row-gap: 20px;
+    background-color: #efefef;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: var(--blue);
+}
+
+a:link, a:visited, a:active{
+    text-decoration: none;
+    color: var(--blue);
+}
+
+/* La barre de navigation et l'entête */
+
+#header{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-area: header;
+    /* max-width: 100%; */
+    width: 100%;
+    background-color: var(--blue);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-items: center;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1240px;
+    height: 65px;
+
+    padding: 0 40px;
+
+}
+
+.logoNotif{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    width: 400px;
+    height: 65px;
+
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo img {
+    width: 180px;
+    padding: 0;
+}
+
+
+
+.notification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.notification img {
+    width: 30px;
+
+}
+
+.searchProfil{
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+
+.search input {
+    position: relative;
+    width: 300px;
+    height: 40px;
+    border-radius: 50px;
+    font-size: var(--content);
+    padding-left: 50px;
+    outline: none;
+    border: none;
+}
+
+.search img {
+    position: absolute;
+    left: 10px;
+    top: 25%;
+    z-index: 1;
+    cursor: pointer;
+    width: 20px;
+}
+
+.profil {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+
+    position: relative;
+}
+
+.profil::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--green);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, -30%);
+    z-index: 2;
+}
+
+.profil img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+
+.menu_dark {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    top: 60px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 0 6px var(--grayLight);
+    font-size: var(--aside);
+    padding: 20px;
+    transition: display 1s ease-in-out;
+}
+
+.menu_dark_deroulant {
+    display: block;
+
+}
+
+.menu_content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu_content span {
+    font-size: var(--smallInfo);
+    color: var(--blue);
+}
+
+.menu_content img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.nom_user_menu, .menu_feedback {
+    display: flex;
+    flex-direction: column;
+} 
+
+.menu_btn {
+    position: relative;
+    width: 50px;
+    border-radius: 50px;
+    background-color: var(--grayLight);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 25px;
+    padding: 2px;
+
+    display: flex;
+    align-items: center;
+}
+
+.rond_btn {
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    cursor: pointer;
+}
+
+.btn_on_mode {
+    padding-left: 25px;
+    background-color: black;
+}
+
+.rond_btn_dark{
+    background-color: var(--white);
+}
+
+
+
+
+
+
+
+
+.btn_photo_content {
+    display: flex;
+    gap: 10px;
+}
+
+.setting_content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.give_feed {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+
+.btn_photo, .config_block {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.config_block > img {
+    width: 10px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.trait {
+    width: auto;
+    height: 1px;
+    background-color: var(--gray);
+}
+
+
+
+/* Contenu de la page */
+
+
+
+#container{
+
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1240px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.container_content{
+
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1210px;
+    justify-content: center;
+    column-gap: 10px;
+    position: relative;
+}
+
+
+
+
+/* Partie main */
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+}
+
+/* Zone status */
+
+.photo_status .status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+}
+
+
+.photo_status .status img{
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+
+/* Zone nombre d'amis et mes messages */
+
+
+.info_user {
+    width: 1000px;
+    padding: 25px;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 4px var(--grayLight);
+}
+
+.content_info_user {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.profil_friends {
+    display: flex;
+    gap: 20px;
+}
+
+.photo_friends {
+    line-height: 30px;
+}
+
+.profil_friends > img {
+    border-radius: 5px;
+}
+
+.followers {
+    font-size: var(--smallInfo);
+    color: var(--gray);
+}
+
+.mini_friends {
+    margin-top: 15px;
+}
+
+.mini_friends img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.friends_message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+
+}
+
+.add_message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 300;
+}
+
+.add_message img, .more_down img {
+    width: 20px;
+}
+
+.add_friends {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--grayLight);
+    padding: 8px;
+    border-radius: 2px;
+    font-size: var(--smallInfo);
+}
+
+.send_message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--blue);
+    padding: 5px;
+    border-radius: 2px;
+    font-size: var(--smallInfo);
+    color: var(--white);
+}
+
+
+.more_down {
+    background-color: var(--grayLight);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+}
+
+
+
+.intro_publication {
+    display: flex;
+    gap: 27px;
+    justify-content: space-between;
+}
+
+.information_user {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 330px;
+    height: 100%;
+    min-height: auto;
+}
+
+.intro{
+    background-color: var(--white);
+    width: 100%;
+    max-width: 330px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    border-radius: 5px;
+    box-shadow: 0 0 4px var(--grayLight);
+    height: 100%;
+    min-height: auto;
+}
+
+.title_intro {
+    font-size: var(--title);
+    font-weight: bold;
+}
+
+
+.motivation {
+    font-size: var(--aside);
+    color: var(--gray);
+    text-align: center;
+}
+
+.motivation img{
+    width: 20px;
+}
+
+hr {
+    width: 290px;
+}
+
+.curriculum {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: var(--aside);
+}
+
+.cv_description {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cv_description img {
+   width: 30px;
+}
+
+.photos_pub {
+    gap: 10px;
+
+}
+
+.title_photos {
+    font-size: var(--title);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+.title_photos span{
+    font-size: var(--smallInfo);
+    color: var(--blue);
+    font-weight: normal;
+
+}
+
+
+.my_photos {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(2, 1fr);
+
+    row-gap: 20px;
+    column-gap: 10px;
+}
+
+.my_photos img {
+    width: 100%;
+}
+
+
+
+.friends_inline {
+    gap: 10px;
+
+}
+
+
+.title_friends {
+    font-size: var(--title);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+.title_friends span{
+    font-size: var(--smallInfo);
+    color: var(--blue);
+    font-weight: normal;
+}
+
+.total_friends{
+    font-size: var(--smallInfo);
+    color: var(--gray);
+}
+
+
+.my_photos_friends {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(2, 1fr);
+
+    row-gap: 20px;
+    column-gap: 10px;
+}
+
+.my_photos_friends img {
+    width: 100%;
+}
+
+.membre p {
+    font-size: var(--aside);
+    color: var(--gray);
+}
+
+
+
+
+
+/* Zone publication */
+
+.zone_publication_user {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.publication {
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--white);
+    box-shadow: 0 0 4px var(--grayLight);
+    padding: 20px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 640px;
+}
+
+
+.block_publication {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.block_publication > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.mode_user {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: var(--smallInfo);
+}
+
+.mode_user img {
+    width: 10px;
+
+}
+
+#textarea {
+    width: 100%;
+    height: 100px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--grayLight);
+    resize: none;
+    padding: 15px 0 0 5px;
+    font-size: var(--content);
+}
+
+.item_publication {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+}
+
+.live_video {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    color: var(--gray);
+}
+
+.live_video img {
+    width: 20px;
+}
+
+/* Block publication membre */
+
+.membre_pub {
+    display:  flex;
+    justify-content: center;
+    padding: 25px;
+    background-color: var(--white);
+    border-radius: 5px;
+    box-shadow: 0 0 4px var(--grayLight);
+    width: 100%;
+    max-width: 640px;
+}
+
+.membre_pub_content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.membre_pub_content_profil {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.membre_pub_content_profil  .membre_profil {
+    display: flex;
+    gap: 10px;
+}
+
+.membre_profil img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.nom_date {
+    display: flex;
+    flex-direction: column;
+}
+
+.date_pub {
+    color: var(--gray);
+    font-size: var(--smallInfo);
+}
+
+.membre_pub_content_profil > img {
+    height: 20px;
+    cursor: pointer;
+}
+
+section.feed_membre {
+    font-size: var(--content);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 30px;
+
+}
+
+section.feed_membre p {
+    font-size: var(--content);
+}
+
+
+section.feed_membre img {
+    width: 100%;
+    border-radius: 5px;
+    line-height: 20px;
+}
+
+.footer_membre_pub {
+    display:  flex;
+    justify-content: center;
+}
+
+.footer_notification {
+    display:  flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.comment_like {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.membre_notif {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: var(--smallInfo);
+    color: var(--gray);
+
+}
+
+.membre_notif img {
+    width: 20px;
+}
+
+.footer_profil {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer_profil img:nth-child(1) {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.footer_profil img:nth-child(2) {
+    width: 10px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+
